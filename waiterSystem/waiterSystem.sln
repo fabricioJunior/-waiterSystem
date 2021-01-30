@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30709.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "waiterSystem", "waiterSystem\waiterSystem.csproj", "{5ADCDDD4-BECE-4609-B975-A69830A9C06B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ADCDDD4-BECE-4609-B975-A69830A9C06B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ADCDDD4-BECE-4609-B975-A69830A9C06B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ADCDDD4-BECE-4609-B975-A69830A9C06B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ADCDDD4-BECE-4609-B975-A69830A9C06B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED609852-674C-47BB-A311-6F76EA901A87}
+	EndGlobalSection
+EndGlobal
