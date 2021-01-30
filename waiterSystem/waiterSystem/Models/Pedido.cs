@@ -12,5 +12,6 @@ namespace waiterSystem.Models
         public int garcomId { get; set; }
         public bool fechado { get; set; }
         public bool pago { get; set; }
+        public  IList<Itens> Itens { get; set; }
     }
 }
