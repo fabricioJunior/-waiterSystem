@@ -1,20 +1,33 @@
 <template>
-  <div id="app">
-    <login/>
-  </div>
-</template>
+   <body id="bg">
+    <div id="app">
+      
+     <router-view/>
+           
+      
+    </div>
+  </body>
 
+  
+</template>
 <script>
-import login from './components/login.vue'
+//import Atendimento from './components/Atendimento';
+import Vue from 'vue';
 
 export default {
-  name: 'App',
-  components: {
-    login
-  }
+   components:{
+  //  Atendimento
+    
+   },
+      
+      Atendimentouounted:function(){
+       Vue.url = "https://localhost:44396/api/";
+   }
 }
 </script>
-
-<style>
-
+  
+<style >
+ body{
+    background-color: rgba(62, 81, 128, 0.8);  
+  }
 </style>

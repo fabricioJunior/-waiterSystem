@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Cors;
 using System.Web.Mvc;
 using waiterSystemMvc.Banco_de_Dados;
+using System.Web.Http.Cors;
 
 namespace waiterSystemMvc.Controllers
 {
+    
     public class GarcomController : ApiController
     {
         // GET: Garcom
@@ -19,22 +22,32 @@ namespace waiterSystemMvc.Controllers
             return context.Garcom.Find(id);
 
         }
-
+     
         public IEnumerable<Pedido> Get([FromBody] Garcom garcom)
         {
             var context = new waiter();
             return context.Garcom.Find(garcom).Pedidos;
-
         }
         // api/garcom 
-        public async void Post([FromBody] Garcom novo)
+       
+
+        public void Post([FromBody] Garcom novo)
         {
             if (novo != null && novo.nome != null)
             {
-                var context = new waiter();
-                context.Garcom.Add(novo);
-                await context.SaveChangesAsync();
+                try
+                {
 
+                    var context = new waiter();
+                    context.Garcom.Add(novo);
+                    context.SaveChanges();
+                  
+                }
+                catch (Exception ex)
+                {
+                   
+                    throw new Exception(ex.Message);
+                }
             }
             else
             {

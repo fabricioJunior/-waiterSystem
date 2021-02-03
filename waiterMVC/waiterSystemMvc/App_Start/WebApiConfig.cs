@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Cors;
+using System.Web.Http.Cors;
 
 namespace waiterSystemMvc
 {
@@ -11,14 +13,20 @@ namespace waiterSystemMvc
         {
             // Serviços e configuração da API da Web
 
-            // Rotas da API da Web
-            config.MapHttpAttributeRoutes();
+            // Rotas da API da Web 
 
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+            config.MapHttpAttributeRoutes();
+            
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+          
+           
             var formatters = GlobalConfiguration.Configuration.Formatters;
             formatters.Remove(formatters.XmlFormatter);
         }

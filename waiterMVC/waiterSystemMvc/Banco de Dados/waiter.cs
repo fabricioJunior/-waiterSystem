@@ -12,7 +12,7 @@ namespace waiterSystemMvc.Banco_de_Dados
         {
         }
 
-        public virtual DbSet<Clientes> Clientes { get; set; }
+
         public virtual DbSet<Garcom> Garcom { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
@@ -21,19 +21,7 @@ namespace waiterSystemMvc.Banco_de_Dados
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Clientes>()
-                .Property(e => e.nome)
-                .IsUnicode(false);
 
-            modelBuilder.Entity<Clientes>()
-                .Property(e => e.cpf)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Clientes>()
-                .HasMany(e => e.Pedido)
-                .WithRequired(e => e.Clientes)
-                .HasForeignKey(e => e.clienteId)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Garcom>()
                 .Property(e => e.nome)
@@ -42,7 +30,15 @@ namespace waiterSystemMvc.Banco_de_Dados
             modelBuilder.Entity<Garcom>()
                 .Property(e => e.cpf)
                 .IsUnicode(false);
-           
+
+            modelBuilder.Entity<Garcom>()
+            .Property(e => e.login)
+            .IsUnicode(false);
+
+            modelBuilder.Entity<Garcom>()
+            .Property(e => e.senha)
+            .IsUnicode(false);
+
             modelBuilder.Entity<Garcom>()
               .HasMany(e => e.Pedidos)
               .WithRequired(e => e.Garcom)
@@ -77,6 +73,7 @@ namespace waiterSystemMvc.Banco_de_Dados
             modelBuilder.Entity<Itens>()
                 .Property(e => e.valor)
                 .HasPrecision(14, 3);
+            
         }
     }
 }

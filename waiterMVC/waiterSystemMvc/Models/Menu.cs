@@ -26,7 +26,8 @@ namespace waiterSystemMvc.Banco_de_Dados
         public string descricao { get; set; }
 
         public int? bebida { get; set; }
-
+        
+        public decimal valor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Itens> Itens { get; set; }
     }

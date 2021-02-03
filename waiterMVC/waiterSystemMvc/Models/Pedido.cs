@@ -18,7 +18,7 @@ namespace waiterSystemMvc.Banco_de_Dados
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        public int clienteId { get; set; }
+       
 
         public int garcomId { get; set; }
 
@@ -28,8 +28,11 @@ namespace waiterSystemMvc.Banco_de_Dados
 
         [Column(TypeName = "numeric")]
         public decimal valor { get; set; }
-
-        public virtual Clientes Clientes { get; set; }
+          
+        public int mesa { get; set; }
+        
+        [StringLength(200)]
+        public string cliente { get; set; }
 
         public virtual Garcom Garcom { get; set; }
 

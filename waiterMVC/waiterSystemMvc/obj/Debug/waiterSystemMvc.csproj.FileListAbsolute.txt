@@ -74,3 +74,6 @@ C:\Users\fabri\repositorio\-waiterSystem\waiterMVC\waiterSystemMvc\bin\EntityFra
 C:\Users\fabri\repositorio\-waiterSystem\waiterMVC\waiterSystemMvc\bin\EntityFramework.SqlServer.dll
 C:\Users\fabri\repositorio\-waiterSystem\waiterMVC\waiterSystemMvc\bin\EntityFramework.xml
 C:\Users\fabri\repositorio\-waiterSystem\waiterMVC\waiterSystemMvc\bin\EntityFramework.SqlServer.xml
+C:\Users\fabri\repositorio\-waiterSystem\waiterMVC\waiterSystemMvc\bin\System.Web.Cors.dll
+C:\Users\fabri\repositorio\-waiterSystem\waiterMVC\waiterSystemMvc\bin\System.Web.Http.Cors.dll
+C:\Users\fabri\repositorio\-waiterSystem\waiterMVC\waiterSystemMvc\bin\System.Web.Http.Cors.xml

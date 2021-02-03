@@ -56,11 +56,17 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -162,15 +168,18 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CopaController.cs" />
+    <Compile Include="Controllers\CozinhaController.cs" />
     <Compile Include="Controllers\GarcomController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
-    <Compile Include="Models\Clientes.cs" />
+    <Compile Include="CorsHandler.cs" />
     <Compile Include="Banco de Dados\Conexao.cs" />
     <Compile Include="Models\Garcom.cs" />
     <Compile Include="Models\Itens.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Banco de Dados\MenuDB.cs" />
-    <Compile Include="Models\Pedido.cs" />
     <Compile Include="Banco de Dados\PedidoDB.cs" />
     <Compile Include="Banco de Dados\sysdiagrams.cs" />
     <Compile Include="Banco de Dados\waiter.cs" />
@@ -178,6 +187,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pedido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -230,10 +240,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Vue\App.vue" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Copa\" />
+    <Folder Include="Views\Cozinha\" />
     <Folder Include="Views\Garcom\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\Menu\" />
     <Folder Include="Views\Pedido\" />
   </ItemGroup>
   <ItemGroup>

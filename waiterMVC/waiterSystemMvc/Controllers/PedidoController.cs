@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
+using System.Data.Entity; 
 using waiterSystemMvc.Banco_de_Dados;
 
 namespace waiterSystemMvc.Controllers
@@ -14,14 +14,24 @@ namespace waiterSystemMvc.Controllers
         /// /api/pedido
         /// </summary>
         /// <param name="novo"></param>
-        public async void Post(Pedido novo)
+        public  void Post(Pedido novo)
         {
           
-            if (novo != null && novo.clienteId != 0 && novo.garcomId != 0) {
-                var context = new waiter();
-                context.Pedido.Add(novo);
-                await context.SaveChangesAsync();
-             }
+            if (novo != null  && novo.garcomId != 0) {
+                try
+                {
+
+                    var context = new waiter();
+                    context.Pedido.Add(novo);
+                    context.SaveChanges();
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception(ex.Message);
+                }             
+            }
             
         }
         /// <summary>
@@ -35,6 +45,13 @@ namespace waiterSystemMvc.Controllers
             return context.Pedido.Find(id);
             
         }
-     
+        public IEnumerable<Pedido> Get()
+        {
+            var context = new waiter();
+            var select = context.Pedido.AsEnumerable().Where(x => x.fechado == 0);//Apenas pedidos abertos
+           // context = null;
+            return select;
+        }
+       
     }
 }

@@ -26,6 +26,9 @@ namespace waiterSystemMvc.Banco_de_Dados
         [Column(Order = 3)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int bebida { get; set; }
+        
+        public int pronto { get; set; }
+        public int quantidade { get; set; }
 
         public virtual Menu Menu { get; set; }
 
