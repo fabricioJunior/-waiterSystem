@@ -1,6 +1,6 @@
 <template>
   <div>
-      <button id="back" @click="voltar">
+    <button id="back" @click="voltar">
       <div id="arrow"></div>
       <p id="voltaText">Voltar</p>
     </button>
@@ -15,23 +15,32 @@
           <th>Quantidade</th>
           <th>Pronto</th>
         </tr>
-        <tr v-for="b in pratos" :key="b.id" >
-           <td>{{b.idPedido}}</td>
-           <td>{{b.Pedido.mesa}}</td>
-           <td>{{b.Menu.nome}}</td>
-           <td>{{b.Menu.descricao}}</td> 
-           <td>{{b.quantidade}}</td>
-           <td><input type="checkbox" v-model="b.pronto" ></td>
+        <tr v-for="b in pratos" :key="b.id">
+          <td>{{ b.idPedido }}</td>
+          <td>{{ b.Pedido.mesa }}</td>
+          <td>{{ b.Menu.nome }}</td>
+          <td>{{ b.Menu.descricao }}</td>
+          <td>{{ b.quantidade }}</td>
+          <td><input type="checkbox" v-model="b.pronto" /></td>
         </tr>
       </table>
     </div>
 
-    <input class = "input" type="submit" value="Atualizar Pratos Prontos" @click="atualizarBebidas"/>
-    <input class="input" type="submit" value="Atualizar Pratos" @click="atualizar">
+    <input
+      class="input"
+      type="submit"
+      value="Atualizar Pratos Prontos"
+      @click="atualizarBebidas"
+    />
+    <input
+      class="input"
+      type="submit"
+      value="Atualizar Pratos"
+      @click="atualizar"
+    />
   </div>
 </template>
 <style scoped>
-
 .input {
   border: none;
   padding: 15px 20px;
@@ -76,7 +85,8 @@ h1 {
   text-align: left;
   background-color: rgba(62, 81, 128, 0.8);
   color: white;
-}#back {
+}
+#back {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -89,7 +99,7 @@ h1 {
 <script>
 import axios from "axios";
 import url from "@/utils";
-import rotas from "@/routers"
+import rotas from "@/routers";
 //import rotas from "@/routers";
 export default {
   data() {
@@ -98,29 +108,34 @@ export default {
     };
   },
   methods: {
-    atualizarBebidas:function(){
-       let array = Array.from(this.pratos);
-       
-       let prontas = array.filter(function(x){ return x.pronto }); 
-       prontas.forEach(element =>{
-            element.pronto = 1;         
-       }); 
-       console.log(prontas);
-       if(prontas.length >= 1){
-          axios.post(url + 'cozinha',prontas).then( d =>{
-             console.log(d);
-             this.atualizar();
-          } ).catch(erro =>{
-          console.log(erro);
+    atualizarBebidas: function () {
+      let array = Array.from(this.pratos);
+
+      let prontas = array.filter(function (x) {
+        return x.pronto;
+      });
+      prontas.forEach((element) => {
+        element.pronto = 1;
+      });
+      console.log(prontas);
+      if (prontas.length >= 1) {
+        axios
+          .post(url + "cozinha", prontas)
+          .then((d) => {
+            console.log(d);
+            this.atualizar();
+          })
+          .catch((erro) => {
+            console.log(erro);
           });
-       }
-      
+      }
     },
-    atualizar:function(){
-     document.location.reload(); 
-    },voltar: function () {
-       rotas.replace("menu");
-    }
+    atualizar: function () {
+      document.location.reload();
+    },
+    voltar: function () {
+      rotas.replace("menu");
+    },
   },
   mounted: function () {
     axios.get(url + "cozinha").then((resp) => {
